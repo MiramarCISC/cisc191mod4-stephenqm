@@ -27,7 +27,7 @@ public class Main {
         // Add at least 3 courses linked to students
         courseRepo.save(new Course(1, "Calculus I",  1));
         courseRepo.save(new Course(2, "Intro to Python",   1));
-        courseRepo.save(new Course(3, "Calculus II",  2));
+        courseRepo.save(new Course(3, "Calculus III",  2));
         courseRepo.save(new Course(4, "Creative Writing",   3));
 
         // Print all students before changes
@@ -40,15 +40,15 @@ public class Main {
         System.out.println(found);
 
         // Print courses for student 1
-        System.out.println("Courses for Student 1 (Alice)");
+        System.out.println("Courses for Student 1 (Chris)");
         courseRepo.findByStudentId(1).forEach(System.out::println);
 
         // Update one student's GPA
-        System.out.println("Updating Bob's GPA to 3.6");
+        System.out.println("Updating Jace's GPA to 3.6");
         service.changeGpa(2, 3.6);
 
         // Delete one student (must delete their courses first due to FK constraint)
-        System.out.println("Deleting Student 3 (Charlie)");
+        System.out.println("Deleting Student 3 (Jace)");
         // Delete Charlie's courses first to satisfy FK constraint
         List<Course> charlieCourses = courseRepo.findByStudentId(3);
         for (Course c : charlieCourses) {

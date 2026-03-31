@@ -30,4 +30,15 @@ public class DatabaseInitializer {
             throw new RuntimeException("Failed to initialize database", e);
         }
     }
+    public static void reset() {
+        try (Connection conn = DatabaseConfig.getConnection();
+             Statement stmt = conn.createStatement()) {
+            // Delete courses first to satisfy the foreign key constraint
+            stmt.execute("DELETE FROM courses");
+            stmt.execute("DELETE FROM students");
+        } catch (SQLException e) {
+            throw new RuntimeException("Failed to reset database", e);
+        }
+    }
 }
+

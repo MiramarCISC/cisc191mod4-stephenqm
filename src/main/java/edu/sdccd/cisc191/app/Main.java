@@ -14,6 +14,8 @@ public class Main {
         // Initialize database tables
         DatabaseInitializer.initialize();
 
+        DatabaseInitializer.reset();
+
         // Create repositories and service
         JdbcStudentRepository studentRepo = new JdbcStudentRepository();
         JdbcCourseRepository courseRepo   = new JdbcCourseRepository();

@@ -6,27 +6,23 @@ public class Course {
     private int studentId;
 
     public Course(int id, String title, int studentId) {
-        // TODO validate fields and assign them
+        if (id <= 0) throw new IllegalArgumentException("id must be > 0");
+        if (title == null || title.isBlank()) throw new IllegalArgumentException("title must not be blank");
+        if (studentId <= 0) throw new IllegalArgumentException("studentId must be > 0");
+        this.id = id;
+        this.title = title;
+        this.studentId = studentId;
     }
 
-    public int getId() {
-        // TODO
-        return 0;
-    }
+    public int getId() { return id; }
 
-    public String getTitle() {
-        // TODO
-        return null;
-    }
+    public String getTitle() { return title; }
 
-    public int getStudentId() {
-        // TODO
-        return 0;
-    }
+    public int getStudentId() { return studentId; }
 
     @Override
     public String toString() {
-        // TODO
-        return "";
+        return "Course{id=" + id + ", title='" + title + "', studentId=" + studentId + "}";
     }
 }
+ 

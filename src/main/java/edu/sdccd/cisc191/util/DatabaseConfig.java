@@ -1,8 +1,11 @@
 package edu.sdccd.cisc191.util;
 
+import java.sql.*;
+
+/* replaced:
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.SQLException; */
 
 public class DatabaseConfig {
     private static final String URL = "jdbc:h2:./data/studentdb";

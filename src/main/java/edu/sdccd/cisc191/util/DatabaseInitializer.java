@@ -1,8 +1,11 @@
 package edu.sdccd.cisc191.util;
 
+import java.sql.*;
+
+/* replaced: 
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.Statement; */
 
 public class DatabaseInitializer {
 
@@ -30,6 +33,7 @@ public class DatabaseInitializer {
             throw new RuntimeException("Failed to initialize database", e);
         }
     }
+
     public static void reset() {
         try (Connection conn = DatabaseConfig.getConnection();
              Statement stmt = conn.createStatement()) {
@@ -41,4 +45,3 @@ public class DatabaseInitializer {
         }
     }
 }
-
